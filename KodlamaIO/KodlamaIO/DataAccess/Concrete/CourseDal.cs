@@ -16,7 +16,6 @@ public class CourseDal : ICourseDal
     {
         _courses.Add(course);
     }
-
     public void Delete(Course course)
     {
         _courses.Remove(course);

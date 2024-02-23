@@ -3,6 +3,7 @@ using KodlamaIO.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,6 +17,28 @@ public class CategoryDal : ICategoryDal
     public void Add(Category category)
     {
         _categories.Add(category);
+    }
+
+    public void AddCourseToCategory(Category category, int courseId)
+    {
+        if (!_categories.Contains(category))
+        {
+            Console.WriteLine("Category does not exist. Please add the category first.");
+        }
+        else
+        {
+            if (!category.CourseId.Contains(courseId))
+            {
+                Console.WriteLine("The course already exists in the category.");
+            }
+            else
+            {
+                category.CourseId.Add(courseId);
+            }
+
+
+        }
+
     }
 
     public void Delete(Category category)
